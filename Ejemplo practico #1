@@ -1,29 +1,9 @@
 from functools import reduce
-
-# Definición de tipos de datos inmutables (tuplas)
-pedidos = [
-    {"id": 1, "categoria": "electronica", "precio": 100},
-    {"id": 2, "categoria": "ropa", "precio": 50},
-    {"id": 3, "categoria": "electronica", "precio": 200},
-    {"id": 4, "categoria": "hogar", "precio": 75},
-    {"id": 5, "categoria": "electronica", "precio": 150},
-]
-
-# Funciones puras
-def aplicar_descuento(pedido, descuento=0.1):
-    return {**pedido, "precio": pedido["precio"] * (1 - descuento)}
-
-def filtrar_por_categoria(pedidos, categoria):
-    return list(filter(lambda p: p["categoria"] == categoria, pedidos))
-
-def calcular_total(pedidos):
-    return reduce(lambda total, p: total + p["precio"], pedidos, 0)
-
-# Procesamiento de pedidos
-pedidos_electronica = filtrar_por_categoria(pedidos, "electronica")
-pedidos_con_descuento = list(map(aplicar_descuento, pedidos_electronica))
-total = calcular_total(pedidos_con_descuento)
-
-# Resultados
-print("Pedidos de electrónica con descuento:", pedidos_con_descuento)
-print("Total de pedidos de electrónica con descuento:", total)
+# Definición de una función pura para sumar una lista de números
+def sumar_lista(lista):
+return reduce(lambda x, y: x + y, lista, 0)
+# Uso de la función
+if __name__ == "__main__":
+lista = [1, 2, 3, 4, 5]
+resultado = sumar_lista(lista)
+print(f"La suma de la lista es: {resultado}")  # Resultado: 15
