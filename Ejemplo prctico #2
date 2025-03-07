@@ -1,0 +1,7 @@
+# Lista de números
+numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+# Duplicar los números pares de la lista
+duplicados = list(map(lambda x: x * 2, filter(lambda x: x % 2 == 0, numeros)))
+
+print(f"Números pares duplicados: {duplicados}")  # Resultado: [4, 8, 12, 16, 20]
